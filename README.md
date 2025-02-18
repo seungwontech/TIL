@@ -5,7 +5,7 @@
 - [DFS와 BFS.md](algorithms/DFSAndBFS.md)
 
 ## JPA
-- [영속성 컨텍스트](jpa/PersistenceContext.md)
+- [영속성 컨텍스트](CS/PersistenceContext.md)
 
 ## 패턴
 - [파사드 패턴](patterns/facade.md)
