@@ -70,52 +70,52 @@
   ```java
   package CS;
 
-import java.util.HashMap;
-import java.util.concurrent.ConcurrentHashMap;
-
-public class HashMapVsConcurrentHashMap {
-    public static void main(String[] args) throws InterruptedException {
-        HashMap<Integer, String> hashMap = new HashMap<>();
-        ConcurrentHashMap<Integer, String> concurrentMap = new ConcurrentHashMap<>();
-
-        Thread thread1 = new Thread(() -> {
-            for (int i = 0; i < 1000; i++) {
-                hashMap.put(i, "Value" + i);
-            }
-        });
-
-        Thread thread2 = new Thread(() -> {
-            for (int i = 0; i < 1000; i++) {
-                hashMap.put(i, "Value" + i);
-            }
-        });
-
-        Thread thread3 = new Thread(() -> {
-            for (int i = 0; i < 1000; i++) {
-                concurrentMap.put(i, "Value" + i);
-            }
-        });
-
-        Thread thread4 = new Thread(() -> {
-            for (int i = 0; i < 1000; i++) {
-                concurrentMap.put(i, "Value" + i);
-            }
-        });
-
-        thread1.start();
-        thread2.start();
-        thread3.start();
-        thread4.start();
-
-        thread1.join();
-        thread2.join();
-        thread3.join();
-        thread4.join();
-
-        System.out.println("HashMap Size: " + hashMap.size()); // 데이터 손실 가능성 있음
-        System.out.println("ConcurrentHashMap Size: " + concurrentMap.size()); // 정확한 크기 보장
-    }
-}
+  import java.util.HashMap;
+  import java.util.concurrent.ConcurrentHashMap;
+  
+  public class HashMapVsConcurrentHashMap {
+      public static void main(String[] args) throws InterruptedException {
+          HashMap<Integer, String> hashMap = new HashMap<>();
+          ConcurrentHashMap<Integer, String> concurrentMap = new ConcurrentHashMap<>();
+  
+          Thread thread1 = new Thread(() -> {
+              for (int i = 0; i < 1000; i++) {
+                  hashMap.put(i, "Value" + i);
+              }
+          });
+  
+          Thread thread2 = new Thread(() -> {
+              for (int i = 0; i < 1000; i++) {
+                  hashMap.put(i, "Value" + i);
+              }
+          });
+  
+          Thread thread3 = new Thread(() -> {
+              for (int i = 0; i < 1000; i++) {
+                  concurrentMap.put(i, "Value" + i);
+              }
+          });
+  
+          Thread thread4 = new Thread(() -> {
+              for (int i = 0; i < 1000; i++) {
+                  concurrentMap.put(i, "Value" + i);
+              }
+          });
+  
+          thread1.start();
+          thread2.start();
+          thread3.start();
+          thread4.start();
+  
+          thread1.join();
+          thread2.join();
+          thread3.join();
+          thread4.join();
+  
+          System.out.println("HashMap Size: " + hashMap.size()); // 데이터 손실 가능성 있음
+          System.out.println("ConcurrentHashMap Size: " + concurrentMap.size()); // 정확한 크기 보장
+      }
+  }
   ```
 
 > 999 :Value999  
