@@ -41,20 +41,20 @@
 - 성능 향상을 위해 락을 세분화 (Segmented Locking) 사용
 - `Hashtable`보다 빠르고, `HashMap`보다 안전
 
-```java
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.Map;
-
-public class ConcurrentHashMapExample {
-    public static void main(String[] args) {
-        Map<Integer, String> concurrentMap = new ConcurrentHashMap<>();
-        concurrentMap.put(1, "Red");
-        concurrentMap.put(2, "Blue");
-        // concurrentMap.put(null, "Null Key"); // ❌ NullPointerException 발생!
-        System.out.println(concurrentMap); // {1=Red, 2=Blue}
-    }
-}
-```
+  ```java
+  import java.util.concurrent.ConcurrentHashMap;
+  import java.util.Map;
+  
+  public class ConcurrentHashMapExample {
+      public static void main(String[] args) {
+          Map<Integer, String> concurrentMap = new ConcurrentHashMap<>();
+          concurrentMap.put(1, "Red");
+          concurrentMap.put(2, "Blue");
+          // concurrentMap.put(null, "Null Key"); // ❌ NullPointerException 발생!
+          System.out.println(concurrentMap); // {1=Red, 2=Blue}
+      }
+  }
+  ```
 
 # `HashMap`과 `ConcurrentHashMap` 차이점
 
@@ -63,12 +63,12 @@ public class ConcurrentHashMapExample {
 | **동기화**      | 동기화되지 않음 (Thread-safe 아님)           | 동기화됨 (Thread-safe 지원)                   |
 | **성능**       | 동기화가 없으므로 더 빠름                      | 동기화로 인해 성능이 다소 떨어짐                      |
 | **Null 키/값** | 하나의 Null 키와 여러 Null 값을 허용           | Null 키/값을 허용하지 않음                       |
-| **멀티스레드 환경** | 멀티스레드 환경에서 안전하지 않음                  | 멀티스레드 환경에서도 안전하게 동작                     |
+| **멀티 환경**    | 멀티스레드 환경에서 안전하지 않음                  | 멀티스레드 환경에서도 안전하게 동작                     |
 | **작동 원리**    | 내부적으로 하나의 락을 사용하여 전체 맵을 잠금          | 여러 세그먼트를 사용하여 동시 접근을 제어 (세그먼트 수준에서 동기화) |
 | **사용 용도**    | 단일 스레드 환경에서 빠르게 동작하거나 동기화가 필요 없는 경우 | 멀티스레드 환경에서 효율적인 병렬 처리가 필요한 경우           |
 
-```java
-package CS;
+  ```java
+  package CS;
 
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
@@ -116,7 +116,7 @@ public class HashMapVsConcurrentHashMap {
         System.out.println("ConcurrentHashMap Size: " + concurrentMap.size()); // 정확한 크기 보장
     }
 }
-```
+  ```
 
 > 999 :Value999  
 > 1000 :null  
