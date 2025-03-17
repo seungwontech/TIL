@@ -52,6 +52,7 @@ SELECT * FROM user u WHERE EXISTS (
 
 - 결과 데이터가 많다면 `JOIN`을 사용
 - 대상 테이블이 크고 특정 조건을 만족하는지 여부만 확인한다면 `EXISTS`가 더 유리
+- `exists`도 서브쿼리지만 실행 방식이 최적화되어 있어 일반 `in` 서브쿼리보다 빠를 수 있음.
 
 ## NOT IN vs NOT EXISTS 최적화
 
@@ -64,6 +65,7 @@ SELECT * FROM user u WHERE EXISTS (
 - `NULL`을 고려할 필요 없이 정상적을 동작
 - 불필요한 조회를 하지 않으며 존재 여부만 확인하면 즉시 종료
 - 테이블 크기가 클수록 NOT `EXISTS`가 더 효율적
+
 
 ## 서브쿼리의 성능 저하 이유
 
